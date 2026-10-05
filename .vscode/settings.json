@@ -1,0 +1,6 @@
+﻿{
+  "task.allowAutomaticTasks": false,
+  "terminal.integrated.hideOnStartup": "always",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.inheritEnv": false
+}
