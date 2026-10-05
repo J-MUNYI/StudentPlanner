@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Planner</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>📘 Student Planner</h1>
+    <p class="subtitle">Track your courses, weekly hours, and assignment submissions</p>
+  </header>
+
+  <main>
+    <!-- ===================== COURSES PANEL ===================== -->
+    <section class="panel" id="courses-panel">
+      <h2>Core Course Work</h2>
+
+      <form id="course-form" class="card-form">
+        <input type="text" id="courseName" placeholder="Course name (e.g. Programming Languages)" required />
+        <input type="text" id="courseCode" placeholder="Course code (e.g. CS301)" required />
+        <input type="number" id="hoursPerWeek" placeholder="Hours / week" min="0" required />
+        <input type="number" id="creditUnits" placeholder="Credit units" min="0" required />
+        <button type="submit">+ Add Course</button>
+      </form>
+
+      <div id="courses-list" class="list"></div>
+    </section>
+
+    <!-- ===================== ASSIGNMENTS PANEL ===================== -->
+    <section class="panel" id="assignments-panel">
+      <h2>Weekly Assignments</h2>
+
+      <div class="selected-course-bar">
+        <label for="course-select">Course:</label>
+        <select id="course-select">
+          <option value="">Select a course first...</option>
+        </select>
+      </div>
+
+      <div id="progress-summary" class="progress-summary hidden"></div>
+
+      <form id="assignment-form" class="card-form hidden">
+        <input type="text" id="assignmentTitle" placeholder="Assignment title" required />
+        <input type="number" id="weekNumber" placeholder="Week #" min="1" required />
+        <input type="date" id="dueDate" required />
+        <input type="number" id="hoursSpent" placeholder="Hours spent (optional)" min="0" step="0.5" />
+        <button type="submit">+ Add Assignment</button>
+      </form>
+
+      <div id="assignments-list" class="list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Backend + Frontend served together from this one Ktor app · MongoDB-backed</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

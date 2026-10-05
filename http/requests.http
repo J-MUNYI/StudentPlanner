@@ -1,0 +1,73 @@
+### Health check
+GET http://localhost:8080/
+
+### CREATE a course
+POST http://localhost:8080/courses
+Content-Type: application/json
+
+{
+  "courseName": "Programming Languages",
+  "courseCode": "CS301",
+  "hoursPerWeek": 6,
+  "creditUnits": 3,
+  "hoursCompleted": 0
+}
+
+### READ all courses
+GET http://localhost:8080/courses
+
+### READ one course (replace {id} with a real id from the create response)
+GET http://localhost:8080/courses/{id}
+
+### UPDATE a course (log hours completed)
+PUT http://localhost:8080/courses/{id}
+Content-Type: application/json
+
+{
+  "id": "{id}",
+  "courseName": "Programming Languages",
+  "courseCode": "CS301",
+  "hoursPerWeek": 6,
+  "creditUnits": 3,
+  "hoursCompleted": 4.5
+}
+
+### DELETE a course
+DELETE http://localhost:8080/courses/{id}
+
+### CREATE an assignment for a course
+POST http://localhost:8080/assignments
+Content-Type: application/json
+
+{
+  "courseId": "{id}",
+  "title": "Week 3 - Kotlin CRUD Lab",
+  "weekNumber": 3,
+  "dueDate": "2026-09-26",
+  "submitted": false,
+  "hoursSpent": 0
+}
+
+### READ all assignments for a course
+GET http://localhost:8080/assignments/course/{id}
+
+### UPDATE an assignment (mark submitted on time)
+PUT http://localhost:8080/assignments/{assignmentId}
+Content-Type: application/json
+
+{
+  "id": "{assignmentId}",
+  "courseId": "{id}",
+  "title": "Week 3 - Kotlin CRUD Lab",
+  "weekNumber": 3,
+  "dueDate": "2026-09-26",
+  "submitted": true,
+  "submittedOnTime": true,
+  "hoursSpent": 3.5
+}
+
+### View progress summary for a course
+GET http://localhost:8080/courses/{id}/progress
+
+### DELETE an assignment
+DELETE http://localhost:8080/assignments/{assignmentId}
